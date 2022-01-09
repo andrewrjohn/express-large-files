@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Express Large Files</title>
+    <script src="https://cdn.jsdelivr.net/npm/downloadjs@1.4.7/download.min.js"></script>
+  </head>
+  <body>
+    <h1>Large file</h1>
+    <div>
+      <h1>sendFile</h1>
+      <a href="/download" download="test.epub">Download with anchor tag</a>
+      <button id="button">Download with downloadjs</button>
+    </div>
+    <div>
+      <h1>Stream</h1>
+
+      <a href="/download-stream" download="test.epub"
+        >Download with anchor tag</a
+      >
+      <button id="button2">Download with downloadjs</button>
+    </div>
+    <div>
+      <h1>Buffer</h1>
+
+      <a href="/download-buffer" download="test.epub"
+        >Download with anchor tag</a
+      >
+      <button id="button3">Download with downloadjs</button>
+    </div>
+    <script>
+      const btn = document.querySelector("#button");
+      btn.addEventListener("click", () => {
+        download("/download");
+      });
+
+      const btn2 = document.querySelector("#button2");
+      btn2.addEventListener("click", () => {
+        download("/download-stream");
+      });
+
+      const btn3 = document.querySelector("#button3");
+      btn3.addEventListener("click", () => {
+        download("/download-buffer");
+      });
+    </script>
+  </body>
+</html>
